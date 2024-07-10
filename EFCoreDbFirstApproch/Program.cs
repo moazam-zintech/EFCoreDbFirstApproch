@@ -1,4 +1,5 @@
 using EFCoreDbFirstApproch.Models;
+using EFCoreDbFirstApproch.UserInfoModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<EmailsDataDbContext>();
+builder.Services.AddDbContext<DbfirstApproachContext>();
+
 
 var app = builder.Build();
 
@@ -26,6 +29,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
 /*Scaffold-dbcontext "Server=localhost;Database=EmailsDataDB;TrustServerCertificate=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models*/
